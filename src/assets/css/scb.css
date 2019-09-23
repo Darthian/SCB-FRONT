@@ -1,0 +1,161 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: url(../img/crossword.png);
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+li.tab > a{
+	color: #283593 !important;
+}
+.brand-logo{
+	font-size: 2.1rem !important;
+}
+#modal_login{
+	min-height: 370px;
+}
+.tabs .indicator {
+    background-color: #FFFFFF !important;
+}
+.promo i {
+    margin: 40px 0;
+    color: #ee6e73;
+    font-size: 7rem;
+    display: block;
+}
+
+.home-icons{
+	margin-bottom: 0px !important;
+	color: #565656 !important;
+}
+.promo-caption, .light{
+	margin: 0px !important;
+}
+.promo-example{
+	color: black !important;
+}
+.parallax-container {
+    height: 300px !important;
+}
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+    color: black;
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #9e9e9e !important;
+    border-radius: 0 !important;
+    outline: none !important;
+    height: 3rem !important;
+    width: 100% !important;
+    font-size: 1rem !important;
+    margin: 0 0 15px 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    box-sizing: content-box !important;
+    transition: all 0.3s !important;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #000 !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+}
+
+.input-field input[type=text].valid, .input-field input[type=password].valid, .input-field input[type=email].valid {
+    border-bottom: 1px solid #039422 !important;
+    box-shadow: 0 1px 0 0 #039422 !important;
+}
+.input-field input[type=text].invalid, .input-field input[type=password].invalid, .input-field input[type=email].invalid {
+    border-bottom: 1px solid #cf0000 !important;
+    box-shadow: 0 1px 0 0 #cf0000 !important;
+}
+
+input:not([type]):focus:not([readonly]) + label, input[type=text]:not(.browser-default):focus:not([readonly]) + label, input[type=password]:not(.browser-default):focus:not([readonly]) + label, input[type=email]:not(.browser-default):focus:not([readonly]) + label, input[type=url]:not(.browser-default):focus:not([readonly]) + label, input[type=time]:not(.browser-default):focus:not([readonly]) + label, input[type=date]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, input[type=tel]:not(.browser-default):focus:not([readonly]) + label, input[type=number]:not(.browser-default):focus:not([readonly]) + label, input[type=search]:not(.browser-default):focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: gray !important;;
+}
+
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content{
+    margin-left: 3rem !important;
+    width: 92% !important;
+    width: calc(100% - 3rem) !important;
+}
+
+.input-field .prefix.active {
+    color: rgb(101, 155, 102) !important;
+}
+
+.input_icon{
+    margin-left: 3rem !important;
+    width: 92% !important;
+    width: calc(100% - 3rem) !important;
+}
+
+.text-xs-center {
+    text-align: center !important;;
+}
+
+.g-recaptcha {
+    display: inline-block !important;;
+}
+
+.margin-top-15{
+    margin-top: 15px;
+}
+.div_contenido_form{
+    background-color: white !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+@media only screen and (max-width: 600px) {
+	.brand-logo{
+		font-size: 1rem !important;
+	}
+	.modal .modal-content{
+		padding: 0px !important;
+    }
+    .parallax-container{
+        height: auto !important;
+    }
+}
+
+.dropdown-content li > a, .dropdown-content li > span{
+    color: black !important;
+}
+
+.date_picker_icono > div > input{
+    margin-left: 3rem !important;
+    width: 92% !important;
+    width: calc(100% - 3rem) !important;
+    color: black !important;
+}
+.ngx-datepicker-calendar-container{
+    z-index: 2;
+}
+
+.white-background{
+    background-color: white !important;
+}
+
+.space-margin-top{
+    margin-top: 15px !important;
+}
+.no-space-margin-top{
+    margin-top: 0px !important;
+}
+.no-space-margin-bottom{
+    margin-bottom: 0px !important;
+}
+
+.space-padding-top{
+    padding-top: 15px !important;
+}
+
+hr{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}

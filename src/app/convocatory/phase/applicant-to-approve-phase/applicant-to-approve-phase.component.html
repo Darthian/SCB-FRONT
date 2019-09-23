@@ -1,0 +1,26 @@
+<table class="responsive-table striped">
+  <thead>
+    <tr>
+      <th class="center-align">Numero documento</th>
+      <th class="center-align">Nombre</th>
+      <th class="center-align">Appelido</th>
+      <th class="center-align">Email</th>  
+    </tr>
+  </thead>
+<!-- TODO: Remover fila -->
+  <tbody>
+    <tr>
+      <td>Soy test</td>
+      <td>nombre</td>
+      <td>ape</td>
+      <td>email</td>
+    </tr>
+    <tr *ngFor="let item of aplicants;let i=index">
+
+      <td>{{item.documentNumber}}</td>
+      <td>{{item.firstName}}</td>
+      <td>{{item.firstLastName}}</td>
+      <td>{{item.email}}</td>
+    </tr>
+  </tbody>
+</table> 

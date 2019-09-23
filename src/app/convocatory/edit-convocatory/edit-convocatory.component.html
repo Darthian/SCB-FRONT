@@ -1,0 +1,66 @@
+<div>
+  <nav class="nav-extended" style="background-color: #01579b">
+    <div class="nav-wrapper">
+      <h4 class="brand-logo center" style="margin: 15px;"> Editar Convocatoria </h4>
+    </div>
+  </nav>
+  <div class="row" style="margin-bottom: 0px;">
+    <div *ngIf="convocatory !== undefined">
+      <form id="form_create_convocatory" class="modal-content" style="margin-top: 10px;padding-bottom: 0px;">
+        <div class="row" *ngIf="summary !== ''">
+          <div class="input-field col s12">
+            <p [innerHTML]="summary" style="color: red;"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6">
+              <label>Nombre</label>
+            <input *ngIf="name_tooltip !== undefined" [(ngModel)]="convocatory.name" name="name" id="name" type="text" class="validate invalid"
+              materialize="tooltip" [materializeParams]="name_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="name_tooltip['error']"
+            />
+            <input *ngIf="name_tooltip === undefined" [(ngModel)]="convocatory.name" name="name" id="name" type="text" class="validate"
+            />            
+          </div>
+          <div class="col s12 m6">
+              <label>Tipo</label>
+            <select [(ngModel)]="selectedType" name="convocatoryType" materialize="material_select" [materializeSelectOptions]="convocatoryTypes"
+              [disabled]="null">        
+              <option *ngFor="let option of convocatoryTypes" [value]="option.id">{{option.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6">
+              <label>Plaza</label>
+            <input *ngIf="numberBeneficiaries_tooltip !== undefined" [(ngModel)]="convocatory.numberBeneficiaries" name="numberBeneficiaries"
+              id="numberBeneficiaries" type="text" class="validate invalid" materialize="tooltip" [materializeParams]="numberBeneficiaries_tooltip"
+              data-position="top" data-delay="10" [attr.data-tooltip]="numberBeneficiaries_tooltip['error']" />
+            <input *ngIf="numberBeneficiaries_tooltip === undefined" [(ngModel)]="convocatory.numberBeneficiaries" name="numberBeneficiaries"
+              id="numberBeneficiaries" type="text" class="validate" />
+          </div>
+          <div class="col s12 m6">
+              <label>Fecha resultados</label>
+            <ng-datepicker *ngIf="resultDate_tooltip !== undefined" class="date_picker_icono validate invalid" [(ngModel)]="convocatory.resultDate" name="resultDate" id="resultDate"  materialize="tooltip" [materializeParams]="resultDate_tooltip" data-position="top" data-delay="4" [attr.data-tooltip]="resultDate_tooltip['error']" [options]="options"></ng-datepicker>
+              <ng-datepicker *ngIf="resultDate_tooltip === undefined" class="date_picker_icono validate" [(ngModel)]="convocatory.resultDate" name="resultDate" id="resultDate"  [options]="options"></ng-datepicker>            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+              <label>Descripcion</label>
+            <textarea *ngIf="description_tooltip !== undefined" [(ngModel)]="convocatory.description" name="description" id="description"
+              class="materialize-textarea  validate invalid" materialize="tooltip" [materializeParams]="description_tooltip"
+              data-position="top" data-delay="10" [attr.data-tooltip]="description_tooltip['error']"></textarea>
+            <textarea *ngIf="description_tooltip === undefined" [(ngModel)]="convocatory.description" name="description" id="description"
+              class="materialize-textarea validate"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <a class="waves-effect btn-flat" id="convocatoryCancel" type="button" value="Cancelar" (click)="cancelUpdateConvocatory(false)">Cancelar</a>
+          <a class="blue waves-effect waves-blue btn-flat" id="convocatory" type="button" value="enviar" (click)="updateConvocatory()"
+            style="color:white;">Enviar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="space-margin-top">
+  <div class="row no-space-margin-bottom">
+    <div class="col m8 s12 offset-m2 z-depth-4" style="padding:0px;">
+      <nav class="nav-extended" style="background-color: #01579b">
+        <div class="nav-wrapper">
+          <div class="left-align col m4 s4" style="padding-left: 10px;">
+            <a class="waves-effect center-align waves-light btn light-green" href="javascript:void();" (click)="goBack()">
+              <i class="material-icons left" style="line-height: 36px;">navigate_before</i> Volver
+            </a>
+          </div>
+          <div class="col m6 s8">
+            <h3 class="brand-logo center"> Fase </h3>
+          </div>
+        </div>
+      </nav>
+      <div *ngIf="phase">
+        <div class="row no-space-margin-bottom">
+          <div class="white-background">
+            <app-detailed-basic-phase *ngIf="phase" [phase]="phase"></app-detailed-basic-phase>
+            <div class="row">
+              <div class="col s12">
+                <div *ngIf="getIsAbleToEdit()">
+                <a class="waves-effect center-align waves-light btn amber modal-trigger" href="#modal_update_Phase" (click)="openModalUpdatePhase()">
+                  <i class="fa fa-edit"></i>Editar
+              </a>
+            </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="phase">
+        <div class="row space-padding-top no-space-margin-bottom white-background">
+          <h5 class="text-xs-center no-space-margin-top" style="margin: 0px;"> Campos </h5>
+          <!-- <div class="col s8">
+            <h4 class="text-xs-center"> Fases </h4>
+          </div>
+          <div class="col s2">
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <a class="waves-effect waves-light btn light-green modal-trigger" href="#modal_create_phase" (click)="openModalCreatePhase()">
+                      <i class="material-icons left">add</i>Crear</a>
+            </ul>
+          </div> -->
+
+          <div class="row">
+            <div class="col s12">
+              <table *ngIf="fields.length > 0" class="responsive-table striped">
+                <thead>
+                  <tr>
+                    <th width="5%" class="center-align"></th>
+                    <th width="20%" class="center-align">Tipo</th>
+                    <th width="40%" class="center-align">Nombre</th>
+                    <th width="25%" class="center-align">Validacion</th>
+                    <th width="10%" class="center-align" style="width:60px">Opciones</th>
+                  </tr>
+                </thead>
+                <tbody [dragula]='"bag-one"' [dragulaModel]='fields'>
+                  <tr *ngFor="let field of fields" class="grabbable">
+                    <td class="center-align"><i class="material-icons">wrap_text</i>  </td>
+                    <td class="center-align"><i class="{{field.iconSelected}}"></i> {{field.selectedOptionName}}</td>
+                    <td class="center-align">{{field.name}}</td>
+                    <td class="center-align">{{field.selectedValidationName}}</td>
+                    <td>
+                     <add-field [edit]="true" [create]="false" [idPhase]="phase.id" [fieldInstance]="field" (deleted)="onDeletedField($event)"></add-field>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+              <!-- <div *ngFor="let field of field">
+                {{field.name}}
+              </div> -->
+              <!-- <ng-template input-field-host></ng-template> -->
+              <div class="space-margin-top">
+                <add-field (created)="onCreatedField($event)" [idPhase]="phase.id" [order]="fields.length"></add-field>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s10">
+              
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="phase">
+  <div id="modal_update_phase" class="modal modal-height" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActionsUpdatePhase">
+    <div class="modal-content">
+      <div class="row">
+        <app-edit-phase [phase]="phase" (cancelation)="closeModalUpdatePhase()"></app-edit-phase>
+      </div>
+    </div>
+  </div>
+</div>

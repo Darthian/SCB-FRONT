@@ -1,0 +1,26 @@
+<div class="white-background space-margin-top z-depth-4">
+  <div class="no-space-margin-bottom" style="padding: 15px;">
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+      <div *ngFor="let question of questions" class="form-row">
+        <df-question [question]="question" [form]="form"></df-question>
+      </div>
+
+      <div class="form-row">
+        <button class="btn waves-effect waves-ligh disabled" [disabled]="!form.valid" *ngIf="!form.valid" type="submit" name="action">Probar
+          <i class="material-icons right">send</i>
+        </button>
+
+        <button class="btn waves-effect waves-ligh green" *ngIf="form.valid" type="submit" name="action">Aplicar
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </form>
+
+    <div *ngIf="payLoad" class="form-row">
+      <strong>Saved the following values</strong>
+      <br>{{payLoad}}
+    </div>
+  </div>
+</div>

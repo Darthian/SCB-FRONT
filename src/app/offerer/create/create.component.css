@@ -1,0 +1,29 @@
+.modal-content{
+    padding: 0px;
+}
+
+.div_tabs{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+input{
+    color: black;
+}
+
+.input-field > label{
+    color: gray;
+}
+
+#tab_modal_crear_usuario{
+    background-color:  #f3f9ff;
+}
+.div_contenido_form{
+    background-color: white;
+}
+h2{
+    color: black;
+}
+.row, input{
+    margin-bottom: 0px !important;
+}

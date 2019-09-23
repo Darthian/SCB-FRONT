@@ -1,0 +1,43 @@
+<!-- <div class="row">
+  <div class="col s9"></div>
+  <div class="col s3">
+    <a class="waves-effect waves-light btn light-blue darken-4 typesButton" type="button">Crear</a>
+  </div>
+</div>-->
+<div class="row" style="color: white; margin-bottom: 0px; margin-top: 15px;">
+  <div class=" col m8 s12 offset-m2 z-depth-4" style="padding: 0px;">
+    <nav class="nav-extended" style="background-color: #01579b">
+      <div class="nav-wrapper">
+        <h3 class="brand-logo center"> Convocatorias </h3>        
+      </div>
+      <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+          <li class="tab"><a (click)="goToPublished()" style="color: white !important;">Vigentes</a></li>
+          <li class="tab"><a (click)="goToInscribed()" style="color: white !important;">Inscritas</a></li>          
+          <li class="tab"><a (click)="goToPlaces()" style="color: white !important;">Plazas</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="white-background" [ngSwitch]="action" style="color:black;">
+    	 <div class="white-background" *ngSwitchCase="'published'">
+        <app-published-list-to-apply-convocatory></app-published-list-to-apply-convocatory>
+      </div>
+      <div class="white-background" *ngSwitchCase="'Inscribed'">
+        <app-inscribed-list-convocatory></app-inscribed-list-convocatory>
+      </div>
+     <div class="white-background" *ngSwitchCase="'places'">
+          <app-places-list-convocatory></app-places-list-convocatory>
+        </div>
+    </div>
+  </div>
+  
+</div>
+<!-- <div class="row" [ngSwitch]="action">
+  <div class="col m8 s12 offset-m2 white-background" *ngSwitchCase="'published'">
+    <app-published-list-convocatory></app-published-list-convocatory>
+  </div>
+  <div class="col m8 s12 offset-m2 white-background" *ngSwitchCase="'pending'">
+    <app-pending-publish-list-convocatory></app-pending-publish-list-convocatory>
+  </div>
+</div> -->

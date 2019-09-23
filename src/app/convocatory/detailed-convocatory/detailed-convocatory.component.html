@@ -1,0 +1,76 @@
+<div class="space-margin-top">
+  <div class="row no-space-margin-bottom">
+    <div class="col m8 s12 offset-m2 z-depth-4" style="padding:0px;">
+      <nav class="nav-extended" style="background-color: #01579b">
+        <div class="nav-wrapper">
+          <div class="left-align col m2 s4" style="padding-left: 20px;">
+            <a class="waves-effect center-align waves-light btn light-green" href="javascript:void();" (click)="goBack()">
+                        <i class="material-icons left" style="line-height: 40px;">navigate_before</i>Volver
+                </a>
+          </div>
+
+
+          <div class="col m6 s8">
+            <h3 class="brand-logo center"> Convocatoria </h3>
+          </div>
+        </div>
+      </nav>
+      <div *ngIf="convocatory">
+        <div class="row no-space-margin-bottom">
+          <div class="white-background">
+            <app-detail-basic-convocatory [convocatory]="convocatory"></app-detail-basic-convocatory>
+            <div class="col s12">
+              <div class="row" *ngIf="isAbleEdit">
+                <div class="space-padding-top">
+                  <a class="waves-effect center-align waves-light btn light-blue modal-trigger" href="#modal_update_convocatory" (click)="openModalUpdateConvocatory()">
+                <i class="material-icons left" >mode_edit</i>Editar
+            </a>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+        <div class="row space-padding-top no-space-margin-bottom white-background">
+          <h5 class="text-xs-center" style="margin: 0px;"> Fases </h5>
+          <div *ngIf="isAbleEdit" class="right-align" style="padding-right: 20px;">
+            <a class="waves-effect center-align waves-light btn light-green modal-trigger" href="#modal_create_phase" (click)="openModalCreatePhase()">
+              <i class="material-icons left">add</i>Crear
+            </a>
+          </div>
+          <!-- <div class="col s8">
+          <h4 class="text-xs-center"> Fases </h4>
+        </div>
+        <div class="col s2">
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <a class="waves-effect waves-light btn light-green modal-trigger" href="#modal_create_phase" (click)="openModalCreatePhase()">
+                    <i class="material-icons left">add</i>Crear</a>
+          </ul>
+        </div> --> 
+          <app-list-phases [isAbleEdit]="isAbleEdit" [convocatoryId]="convocatory.id" [refresh]="refreshListPhases" ></app-list-phases>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="convocatory">
+  <div id="modal_create_phase" class="modal modal-height" materialize="modal" [materializeParams]="[{dismissible: false}]"
+    [materializeActions]="modalActionsCreatePhase">
+    <div class="modal-content">
+      <div class="row">
+        <app-create-phase [convocatory]="convocatory" (cancelation)="closeModalCreatePhase($event)"></app-create-phase>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal_update_convocatory" class="modal modal-height" materialize="modal" [materializeParams]="[{dismissible: false}]"
+    [materializeActions]="modalActionsUpdateConvocatory">
+    <div class="modal-content">
+      <div class="row">
+        <app-edit-convocatory [convocatory]="convocatory" (cancelation)="closeModalUpdateConvocatory()"></app-edit-convocatory>
+      </div>
+    </div>
+  </div>
+</div>

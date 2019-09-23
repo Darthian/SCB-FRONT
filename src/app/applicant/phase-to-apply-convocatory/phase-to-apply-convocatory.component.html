@@ -1,0 +1,98 @@
+<div class="space-margin-top">
+  <div class="row no-space-margin-bottom">
+    <div class="col m8 s12 offset-m2 z-depth-4" style="padding:0px;">
+      <nav class="nav-extended" style="background-color: #01579b">
+        <div class="nav-wrapper">
+          <div class="left-align col m2 s4" style="padding-left: 20px;">
+            <a class="waves-effect center-align waves-light btn light-green" href="javascript:void();" (click)="goBack()">
+                        <i class="material-icons left" style="line-height: 40px;">navigate_before</i>Volver
+                </a>
+          </div>
+          <div class="col m6 s8">
+            <h3 class="brand-logo center"> Convocatoria </h3>
+          </div>
+        </div>
+      </nav>
+      <div *ngIf="convocatory">
+        <div class="row no-space-margin-bottom">
+          <div class="white-background">
+            <app-detail-basic-convocatory [convocatory]="convocatory"></app-detail-basic-convocatory>
+            <hr>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!isEnabledPhase">                
+          <h5 class="text-xs-center" >La convocatoria ya ha cerrado.</h5>
+          <br/><br/>
+      </div>
+      <div *ngIf="currentState === stateRejectedOtherPhase">   
+          <h5 class="text-xs-center" >Usted a sido rechazado de la convocatoria.</h5>
+          <br/><br/>                       
+      </div>
+      <div [hidden]="!isEnabledPhase || currentState === stateRejectedOtherPhase">
+        <div class="row space-padding-top no-space-margin-bottom white-background">
+          <h5 class="text-xs-center" style="margin: 0px;"> Fases </h5>
+
+          <!--- phase to apply -->
+          <div class="row">
+            <ul class="collapsible col m8 s12 offset-m2 z-depth-4" style="padding: 0px !important;" data-collapsible="accordion">             
+              <li>                 
+                <div class="collapsible-header active">                  
+                  <i class="material-icons"></i>
+                  <h5 class="text-xs-center col s12">{{ phase.name }}</h5>                  
+                </div>
+                <div class="collapsible-body">
+                 <div class="row">
+                    <div class="input-field inline col s12">
+                      <strong>Fecha Inicio:</strong>
+                      <span>{{ phase.startDate }} </span>
+                    </div>
+                    <div class="input-field inline col s12">
+                      <strong>Fecha Finalización:</strong>
+                      <span>{{ phase.endDate }} </span>
+                    </div>
+                    <div class="input-field inline col s12">
+                      <strong>Fecha Inicio aprobación postulación:</strong>
+                      <span>{{ phase.startApprovalDate }} </span>
+                    </div>
+                    <div class="input-field inline col s12">
+                      <strong>Fecha Fin aprobación postulación:</strong>
+                      <span>{{ phase.endApprovalDate }} </span>
+                    </div>
+                    <div class="input-field inline col s12">
+                      <strong>Descripción:</strong>
+                      <span>{{ phase.description }} </span>
+                    </div>
+                    <!--<div class="input-field inline col s12">
+                      <strong>Estado:</strong>
+                      <span>{{ currentState }} </span>
+                    </div>                    -->
+                    <div class="input-field col s12 center-align">
+                      <div *ngIf="currentState === statePendingData">
+                        <a class="waves-effect waves-light btn green" id="aplicar" type="button" value="Aplicar" (click)="goToApply()">Aplicar</a>
+                      </div>
+                      <div *ngIf="currentState === statePending">
+                        Usted ya se registró a esta fase, esta pendiente de ser validádo.
+                      </div>
+                      <div *ngIf="currentState === stateApproved">
+                        Usted ya ha sido aprobado en esta fase, por favor espere para que se habilite la siguiente fase.
+                      </div>
+                      <div *ngIf="currentState === stateRejected">
+                        Usted no ha sido aprobado en esta fase.
+                      </div>
+                    </div>
+                  </div>
+                </div>                
+              </li>            
+            </ul>
+          </div>
+
+
+          <!--- phase to apply -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

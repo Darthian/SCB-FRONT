@@ -1,0 +1,64 @@
+<div class="space-margin-top">
+  <div class="row no-space-margin-bottom">
+    <div class="col m8 s12 offset-m2 z-depth-4" style="padding:0px;">
+      <nav class="nav-extended" style="background-color: #01579b">
+        <div class="nav-wrapper">
+          <div class="left-align col m4 s4" style="padding-left: 10px;">
+            <a class="waves-effect center-align waves-light btn light-green" href="javascript:void();" (click)="goBack()">
+              <i class="material-icons left" style="line-height: 36px;">navigate_before</i>
+            </a>
+          </div>
+          <div class="col m6 s8">
+            <h6 *ngIf="phase" class="brand-logo center"> Aprobar aplicantes: {{phase.name}} </h6>
+          </div>
+        </div>
+      </nav>
+      <div *ngIf="aplicants" class="white-background">
+
+        <table *ngIf="aplicants.length > 0" class="responsive-table striped">
+          <thead>
+            <tr>
+              <th class="center-align">Nombre Aplicante</th>
+              <th class="center-align">Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let aplicant of aplicants" class="grabbable">
+              <td class="center-align">{{aplicant.applicant.firstName}} {{aplicant.applicant.secondName}} {{aplicant.applicant.firstLastName}} {{aplicant.applicant.secondLastName}}</td>
+              <td class="center-align">
+                <p *ngIf="aplicant.applicantPerPhaseState.name == 'Aprobado'" style="color:#4CAF50 !important">
+                  <i class="fa fa-check"></i> Aprobado</p>
+                <p *ngIf="aplicant.applicantPerPhaseState.name == 'Rechazado'" style="color: #F44336 !important">
+                  <i class="fa fa-times"></i> Rechazado</p>
+                <a *ngIf="aplicant.applicantPerPhaseState.name == 'Pendiente'" class="sin_padding waves-effect center-align waves-light btn light-blue"
+                  (click)="openModal(aplicant)">
+                  <i class="material-icons left" style="line-height: 36px;">check_box</i> Ver Respuestas
+                </a>
+                <!-- <a class="sin_padding waves-effect center-align waves-light btn light-green">
+                  <i class="material-icons left" style="line-height: 36px;">navigate_before</i> Aprobar
+                </a> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <!-- <a class="waves-effect waves-light btn green" (click)="openModal()"><i class="fa fa-plus-circle"></i> Abrir modal</a> -->
+
+        <div id="modal_ver_respuestas" class="modal modal-height" materialize="modal" [materializeParams]="[{dismissible: true}]"
+          [materializeActions]="modalActions">
+          <div class="modal-content">
+            <div class="row" *ngIf="selected_aplicant">
+              <app-detail-applicant-phase-answer [phaseId]="phase.id" [appPhaseId]="selected_aplicant.id"></app-detail-applicant-phase-answer>
+            </div>
+          </div>
+          <div class="modal-footer center-align">
+            <a class="waves-effect btn-flat" (click)="closeModal()">Cancelar</a>
+            <a class="red waves-effect waves-blue btn-flat" (click)="rejectApplicant()" style="color:white;">Rechazar</a>
+            <a class="green waves-effect waves-blue btn-flat" (click)="approveApplicant()" style="color:white;">Aprobar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

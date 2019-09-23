@@ -1,0 +1,80 @@
+<div>
+  <nav class="nav-extended" style="background-color: #01579b">
+    <div class="nav-wrapper">
+      <h4 class="brand-logo center" style="margin: 15px;"> Editar Fase </h4>
+    </div>
+  </nav>
+  <div class="row" style="margin-bottom: 0px;">
+    <form id="form_create_phase" class="modal-content" style="margin-top: 10px;padding-bottom: 0px;">
+      <div class="row" *ngIf="summary !== ''">
+        <div class="input-field col s12">
+          <p [innerHTML]="summary" style="color: red;"></p>
+        </div>
+      </div> 
+
+      <div class="row">
+        <div class="col s12 m6">
+            <label>Nombre</label>
+          <input *ngIf="name_tooltip !== undefined" [(ngModel)]="phase.name" name="name" id="name" type="text" class="validate invalid"
+            materialize="tooltip" [materializeParams]="name_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="name_tooltip['error']"
+          />
+          <input *ngIf="name_tooltip === undefined" [(ngModel)]="phase.name" name="name" id="name" type="text" class="validate" />          
+        </div>
+      </div>
+      <div class="row">
+          <div class="col s6 m3">
+              <label>Fecha inicio</label>
+              <i class="fa fa-calendar-minus-o prefix"></i>     
+              <ng-datepicker *ngIf="startDate_tooltip !== undefined" [(ngModel)]="phase.startDate" name="startDate" id="startDate"
+              class="date_picker_icono validate invalid" materialize="tooltip" [materializeParams]="startDate_tooltip" data-position="top"
+                data-delay="4" [attr.data-tooltip]="startDate_tooltip['error']" [options]="options"></ng-datepicker>
+              <ng-datepicker *ngIf="startDate_tooltip === undefined" [(ngModel)]="phase.startDate" name="startDate" id="startDate" 
+              class="date_picker_icono validate" [options]="options"></ng-datepicker>          
+            </div>       
+            <div class="col s6 m3">
+                <label>Fecha fin</label>
+                <i class="fa fa-calendar-minus-o prefix"></i>
+              <ng-datepicker *ngIf="endDate_tooltip !== undefined" [(ngModel)]="phase.endDate" name="endDate" id="endDate"
+              class="date_picker_icono validate invalid" materialize="tooltip" [materializeParams]="endDate_tooltip" data-position="top"
+                data-delay="4" [attr.data-tooltip]="endDate_tooltip['error']" [options]="options"></ng-datepicker>
+              <ng-datepicker *ngIf="endDate_tooltip === undefined" [(ngModel)]="phase.endDate" name="endDate" id="endDate" 
+              class="date_picker_icono validate" [options]="options"></ng-datepicker>         
+            </div>
+      </div>
+      <div class="row">
+          <div class="col s6 m3">
+              <label>Fecha inicio aprobación</label>
+              <i class="fa fa-calendar-minus-o prefix"></i>
+            <ng-datepicker *ngIf="startApprovalDate_tooltip !== undefined" [(ngModel)]="phase.startApprovalDate" name="startApprovalDate" id="startApprovalDate"
+            class="date_picker_icono validate invalid" materialize="tooltip" [materializeParams]="startApprovalDate_tooltip"
+              data-position="top" data-delay="4" [attr.data-tooltip]="startApprovalDate_tooltip['error']" [options]="options"></ng-datepicker>
+            <ng-datepicker *ngIf="startApprovalDate_tooltip === undefined" [(ngModel)]="phase.startApprovalDate" name="startApprovalDate" id="startApprovalDate"
+            class="date_picker_icono validate" [options]="options"></ng-datepicker>            
+          </div>
+          <div class="col s6 m3">
+              <label>Fecha fin aprobación</label> 
+              <i class="fa fa-calendar-minus-o prefix"></i>
+            <ng-datepicker *ngIf="endApprovalDate_tooltip !== undefined" [(ngModel)]="phase.endApprovalDate" name="endApprovalDate" id="endApprovalDate"
+            class="date_picker_icono validate invalid" materialize="tooltip" [materializeParams]="endApprovalDate_tooltip"
+              data-position="top" data-delay="10" [attr.data-tooltip]="endApprovalDate_tooltip['error']" [options]="options"></ng-datepicker>
+            <ng-datepicker *ngIf="endApprovalDate_tooltip === undefined" [(ngModel)]="phase.endApprovalDate" name="endApprovalDate" id="endApprovalDate"
+            class="date_picker_icono validate" [options]="options"></ng-datepicker>          
+          </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+            <label>Descripcion</label>
+          <input *ngIf="description_tooltip !== undefined" [(ngModel)]="phase.description" name="description" id="description" type="text"
+            class="validate invalid" materialize="tooltip" [materializeParams]="description_tooltip" data-position="top" data-delay="10"
+            [attr.data-tooltip]="description_tooltip['error']" />
+          <textarea *ngIf="description_tooltip === undefined" [(ngModel)]="phase.description" name="description" id="description" type="text"
+            class="validate" rows="15" cols="70"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a class="waves-effect btn-flat" id="phaseCancel" type="button" value="Cancelar" (click)="cancelUpdatePhase(false)">Cancelar</a>
+        <a class="blue waves-effect waves-blue btn-flat" id="phase" type="button" value="enviar" (click)="updatePhase()" style="color:white;">Enviar</a>
+      </div>
+    </form>
+  </div>
+</div>

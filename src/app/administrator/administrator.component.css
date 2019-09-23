@@ -1,0 +1,13 @@
+.typesButton{
+    width: 100%;
+    margin-top:5px;
+}
+
+li.tab > a {
+    color: white !important;
+    font-weight: bold;
+}
+
+.tabs .indicator {
+    background-color: red !important;
+}

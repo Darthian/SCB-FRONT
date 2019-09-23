@@ -1,0 +1,13 @@
+.loginPanel{
+    /* border: 2px solid black;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    background-color: white */
+    padding-bottom: 15px;
+}
+
+.div_contenido_form{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: white;
+}

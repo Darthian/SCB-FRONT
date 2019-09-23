@@ -1,0 +1,92 @@
+<form id="form_solicitante">
+<div class="row">
+  <div class="input-field col s6 m3">
+    <input *ngIf="firstName_tooltip !== undefined" [(ngModel)]="firstName" name="firstName" id="firstName" type="text" class="validate invalid" materialize="tooltip" [materializeParams]="firstName_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="firstName_tooltip['error']">
+    <input *ngIf="firstName_tooltip === undefined" [(ngModel)]="firstName" name="firstName" id="firstName" type="text" class="validate">
+    <label>Primer nombre</label>
+  </div>
+  <div class="input-field col s6 m3">
+    <input *ngIf="secondName_tooltip !== undefined" [(ngModel)]="secondName" name="secondName" id="secondName" type="text" class="validate invalid" materialize="tooltip" [materializeParams]="secondName_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="secondName_tooltip['error']">
+    <input *ngIf="secondName_tooltip === undefined" [(ngModel)]="secondName" name="secondName" id="secondName" type="text" class="validate">
+    <label>Segundo nombre</label>
+  </div>
+  <div class="input-field col s6 m3">
+    <input *ngIf="firstLastName_tooltip !== undefined" [(ngModel)]="firstLastName" name="firstLastName" id="firstLastName" type="text" class="validate invalid" materialize="tooltip" [materializeParams]="firstLastName_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="firstLastName_tooltip['error']">
+    <input *ngIf="firstLastName_tooltip === undefined" [(ngModel)]="firstLastName" name="firstLastName" id="firstLastName" type="text" class="validate">
+    <label>Primer apellido</label>
+  </div>
+  <div class="input-field col s6 m3">
+      <input *ngIf="secondLastName_tooltip !== undefined" [(ngModel)]="secondLastName" name="secondLastName" id="secondLastName" type="text" class="validate invalid" materialize="tooltip" [materializeParams]="secondLastName_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="secondLastName_tooltip['error']">
+      <input *ngIf="secondLastName_tooltip === undefined" [(ngModel)]="secondLastName" name="secondLastName" id="secondLastName" type="text" class="validate">
+    <label>Segundo apellido</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-field col s12 m6">
+    <!-- <input [(ngModel)]="documentType" name="documentType" type="text" class="validate">
+    <label>Tipo de identificacion</label> -->
+    
+    <select [(ngModel)]="documentType" name="documentType" materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="null">
+      <!-- <option value="" disabled selected>Elige una opcion</option> -->
+      <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
+    </select>
+    <label>Tipo de documento</label>
+
+  </div>
+  <div class="input-field col s12 m6">
+    <input *ngIf="documentNumber_tooltip !== undefined" [(ngModel)]="documentNumber" name="documentNumber" id="documentNumber" type="text" class="validate invalid" materialize="tooltip" [materializeParams]="documentNumber_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="documentNumber_tooltip['error']">
+    <input *ngIf="documentNumber_tooltip === undefined" [(ngModel)]="documentNumber" name="documentNumber" id="documentNumber" type="text" class="validate">
+    <label>Identificacion</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-field col s12 m6">
+    <input *ngIf="telephone_tooltip !== undefined" [(ngModel)]="telephone" name="telephone" id="telephone" type="text" class="validate invalid" materialize="tooltip" [materializeParams]="telephone_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="telephone_tooltip['error']">
+    <input *ngIf="telephone_tooltip === undefined" [(ngModel)]="telephone" name="telephone" id="telephone" type="text" class="validate">
+    <label>Telefono</label>
+  </div>
+  <div class="input-field col s12 m6">
+    <input *ngIf="cellphone_tooltip !== undefined" [(ngModel)]="cellphone" name="cellphone" id="cellphone" type="text" class="validate invalid" materialize="tooltip" [materializeParams]="cellphone_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="cellphone_tooltip['error']">
+    <input *ngIf="cellphone_tooltip === undefined" [(ngModel)]="cellphone" name="cellphone" id="cellphone" type="text" class="validate">
+    <label>Celular</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-field col s12 m6">
+    <input *ngIf="address_tooltip !== undefined" [(ngModel)]="address" name="address" id="address" type="text" class="validate invalid" materialize="tooltip" [materializeParams]="address_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="address_tooltip['error']">
+    <input *ngIf="address_tooltip === undefined" [(ngModel)]="address" name="address" id="address" type="text" class="validate">
+    <label>Direccion</label>
+  </div>
+  <div class="input-field col s12 m6">
+    <input *ngIf="email_tooltip !== undefined" [(ngModel)]="email" name="email" id="email" type="email" class="validate invalid" materialize="tooltip" [materializeParams]="email_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="email_tooltip['error']">
+    <input *ngIf="email_tooltip === undefined" [(ngModel)]="email" name="email" id="email" type="email" class="validate">
+    <label>Correo electonico</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-field col s12 m6">
+    <input *ngIf="password_tooltip !== undefined" [(ngModel)]="password" name="password" id="password" type="password" class="validate invalid" materialize="tooltip" [materializeParams]="password_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="password_tooltip['error']">
+    <input *ngIf="password_tooltip === undefined" [(ngModel)]="password" name="password" id="password" type="password" class="validate">
+    <label>Contraseña</label>
+  </div>
+  <div class="input-field col s12 m6">
+    <input *ngIf="password2_tooltip !== undefined" [(ngModel)]="password2" name="password2" id="password2" type="password" class="validate invalid" materialize="tooltip" [materializeParams]="password2_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="password2_tooltip['error']">
+    <input *ngIf="password2_tooltip === undefined" [(ngModel)]="password2" name="password2" id="password2" type="password" class="validate">
+    <label>Repetir contraseña</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12 center-align margin-top-15">
+    <recaptcha class="g-recaptcha" (resolved)="resolved($event)" [(ngModel)]="captcha" name="captcha" required siteKey="6LdKBzAUAAAAALt49pVJayxaszx30wEjoWXQO5R3"></recaptcha>
+  </div> 
+</div>
+
+<div class="input-field col s12 center-align">
+  <a class="waves-effect waves-light btn green" id="solictante" type="button" value="enviar" (click)="registerSolicitant()" >Enviar</a>
+</div>
+</form>

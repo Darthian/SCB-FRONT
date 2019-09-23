@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col s12 m8 offset-m2 div_contenido_form z-depth-4">
+    <h3 style="text-align: center">Subir documentos personales</h3>
+    <form #formLogin="ngForm" class="center">
+      <div class="row">
+        <div class="input-field">
+          <input name="name" type="name"  [(ngModel)]="name" name="name" id="name" type="text" class="validate">
+          <label>Nombre</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Archivo</span>
+            <input id="the-file" type="file" [multiple]="multiple" #fileInput>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </div>
+      
+      <div class="input-field col s12 center-align">
+        <a class="waves-effect waves-light btn green" type="button" (click)="upload()" >Subir</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,170 @@
+<div class="row" >
+  <ul class="collapsible col m8 s12 offset-m2 z-depth-4" style="padding: 0px !important;" data-collapsible="accordion">
+    <li *ngFor="let phase of phases">
+      <div class="collapsible-header active">
+            
+        <i class="material-icons"></i><h5 class="text-xs-center col s12">{{ phase.name }}</h5>
+        
+        <div class="col m4 s3">
+          <a *ngIf="isAbleToEdit(phase)" (click)="removePhase(phase.id)" class="waves-effect waves-light btn red">
+            <i class="fa fa-times" style="margin: 0;"></i></a>
+        </div>
+        <div class="col m4 s3">
+          <a (click)="goToPhase(phase.id)" class="waves-effect waves-light btn green right-align"><i class="small material-icons center right-align" style="margin: 0;">visibility</i></a>
+       </div>       
+      </div>
+      <div class="collapsible-body"> 
+          <div class="row">
+            <div class="input-field inline col s12">
+                <strong>Fecha Inicio:</strong>
+                <span>{{ getFormatDate(phase.startDate) }} </span>
+            </div>
+            <div class="input-field inline col s12">
+                <strong>Fecha Finalización:</strong>
+                <span>{{ getFormatDate(phase.endDate) }} </span>
+            </div>
+            <div class="input-field inline col s12">
+                <strong>Fecha Inicio aprobación postulación:</strong>
+                <span>{{ getFormatDate(phase.startApprovalDate) }} </span>
+            </div>
+            <div class="input-field inline col s12">
+                <strong>Fecha Fin aprobación postulación:</strong>
+                <span>{{ getFormatDate(phase.endApprovalDate) }} </span>
+            </div>
+            <div class="input-field inline col s12">
+                <strong>Descripción:</strong>
+                <span>{{ phase.description }} </span>
+            </div>         
+          </div>
+      </div>
+    </li>  
+  </ul>
+</div>
+
+
+
+
+<!--<ul class="collapsible" data-collapsible="accordion">
+  <li *ngFor="let phase of phases">
+    <div class="collapsible-header active"><i class="material-icons"></i>First</div>
+    <div class="collapsible-body">
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs">
+              <li class="tab col s3"><a href="#test1">Test 1</a></li>
+              <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+              <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+              <li class="tab col s3"><a href="#test4">Test 4</a></li>
+            </ul>
+          </div>
+          <div id="test1" class="col s12">Test 1</div>
+          <div id="test2" class="col s12">Test 2</div>
+          <div id="test3" class="col s12">Test 3</div>
+          <div id="test4" class="col s12">Test 4</div>
+        </div>
+
+    </div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons"></i>Second</div>
+    <div class="collapsible-body">
+
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs">
+              <li class="tab col s3"><a href="#test1">Test 1</a></li>
+              <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+              <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+              <li class="tab col s3"><a href="#test4">Test 4</a></li>
+            </ul>
+          </div>
+          <div id="test1" class="col s12">Test 1</div>
+          <div id="test2" class="col s12">Test 2</div>
+          <div id="test3" class="col s12">Test 3</div>
+          <div id="test4" class="col s12">Test 4</div>
+        </div>
+
+    </div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons"></i>Third</div>
+    <div class="collapsible-body">
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+  </li>
+</ul>-->
+<!--
+<ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">numberBeneficiaries</i>Second</div>
+            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+          </li>
+        </ul>-->
+
+<!--<div materialize="carousel" [materializeParams]="[{full_width: true}]" class="carousel carousel-slider center" data-indicators="true">
+    <div class="carousel-fixed-item center">
+        <a class="btn waves-effect white grey-text darken-text-2">button</a>
+    </div>
+    <div class="carousel-item red white-text" href="#one!">
+        <h2>First Panel</h2>
+        <p class="white-text">This is your first panel</p>
+    </div>
+    <div class="carousel-item amber white-text" href="#two!">
+        <h2>Second Panel</h2>
+        <p class="white-text">This is your second panel</p>
+    </div>
+    <div class="carousel-item green white-text" href="#three!">
+        <h2>Third Panel</h2>
+        <p class="white-text">This is your third panel</p>
+    </div>
+    <div class="carousel-item blue white-text" href="#four!">
+        <h2>Fourth Panel</h2>
+        <p class="white-text">This is your fourth panel</p>
+    </div>
+</div>-->
+
+<!--<ul materialize="collapsible" class="collapsible popout" data-collapsible="accordion">
+    <li>
+        <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.sdafdsaasdsaddssdadwsds
+          sfdsdaffsd<br/>dasesdfds</p></div>
+    </li>
+    <li>
+        <div class="collapsible-header"><i class="material-icons">numberBeneficiaries</i>Second</div>
+        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+        <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+</ul>-->
+<!--
+ <ul materialize="collapsible" class="collapsible" data-collapsible="accordion" [materializeParams]="params" [materializeActions]="actions1">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+          </li>
+          <li>
+            <div class="collapsible-header active"><i class="material-icons">numberBeneficiaries</i>Second</div>
+            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+          </li>
+        </ul>
+        <br/><br/>
+        <ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
+          <li *ngFor="let value of values">
+            <div class="collapsible-header">{{value}}</div>
+            <div class="collapsible-body"><p>{{value}}</p></div>
+          </li>
+        </ul>-->

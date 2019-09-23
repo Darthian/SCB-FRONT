@@ -1,0 +1,56 @@
+<!-- <div class="row">
+  <div class="col s9"></div>
+  <div class="col s3">
+    <a class="waves-effect waves-light btn light-blue darken-4 typesButton" type="button">Crear</a>
+  </div>
+</div>-->
+<div class="row" style="color: white; margin-bottom: 0px; margin-top: 15px;">
+  <div class=" col m8 s12 offset-m2 z-depth-4" style="padding: 0px;">
+    <nav class="nav-extended" style="background-color: #01579b">
+      <div class="nav-wrapper">
+        <h3 class="brand-logo center"> Convocatorias </h3>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <a class="waves-effect waves-light btn light-green modal-trigger" href="#modal_create_convocatory"
+            (click)="openModalCreateConvocatory()" >
+            <i class="material-icons left">add</i>Crear</a>
+        </ul>
+      </div>
+      <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+          <li class="tab"><a (click)="goToPublished()" style="color: white !important;">Publicadas</a></li>
+          <li class="tab"><a (click)="goToPendingPublish()" style="color: white !important;">Por Publicar</a></li>
+          <li class="tab"><a (click)="goToPendingApproveApplicants()" style="color: white !important;">Aprobar aplicantes</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="white-background" [ngSwitch]="action" style="color:black;">
+      <div class="white-background" *ngSwitchCase="'published'">
+        <app-published-list-convocatory></app-published-list-convocatory>
+      </div>
+      <div class="white-background" *ngSwitchCase="'pending'">
+        <app-pending-publish-list-convocatory></app-pending-publish-list-convocatory>
+      </div>
+      <div class="white-background" *ngSwitchCase="'pendingApprovedPhases'">
+        <app-pending-list-approve-phases-convocatory></app-pending-list-approve-phases-convocatory>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<!-- <div class="row" [ngSwitch]="action">
+  <div class="col m8 s12 offset-m2 white-background" *ngSwitchCase="'published'">
+    <app-published-list-convocatory></app-published-list-convocatory>
+  </div>
+  <div class="col m8 s12 offset-m2 white-background" *ngSwitchCase="'pending'">
+    <app-pending-publish-list-convocatory></app-pending-publish-list-convocatory>
+  </div>
+</div> -->
+
+<div id="modal_create_convocatory" class="modal modal-height"  materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActionsCreateConvocatory">
+  <!-- <div class="modal-content"> -->
+    <!-- <div class="row"> -->
+      <app-create-convocatory (cancelation)="closeModalCreateConvocatory($event)" ></app-create-convocatory>
+    <!-- </div> -->
+  <!-- </div> -->
+</div>

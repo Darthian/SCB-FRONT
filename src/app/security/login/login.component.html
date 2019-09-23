@@ -1,0 +1,24 @@
+
+<div class="row">
+  <div class="col s12 m8 offset-m2 loginPanel div_contenido_form z-depth-4">
+    <h3 style="text-align: center">Iniciar Sesión</h3>
+    <form #formLogin="ngForm" class="center">
+      <div class="row">
+        <div class="input-field">
+          <input name="email" type="email" class="validate" #email="ngModel" [(ngModel)]="userLogin.email" required>
+          <label>Correo electrónico</label>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <input name="password" type="password" class="validate" #password="ngModel" [(ngModel)]="userLogin.password" required>
+          <label>Contraseña</label>
+        </div>
+      </div>
+      <div class="input-field center-align">
+        <a class="waves-effect waves-light btn light-blue darken-4 col s12 m4 offset-m4" type="button" (click)="onLogin()">Iniciar Sesión</a>
+      </div>
+    </form>
+  </div>
+</div>

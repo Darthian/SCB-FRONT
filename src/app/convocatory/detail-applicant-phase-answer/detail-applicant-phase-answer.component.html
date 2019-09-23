@@ -1,0 +1,55 @@
+<div class="space-padding-top">
+
+  <div *ngIf="!applicant" class="progress">
+    <div class="indeterminate"></div>
+  </div>
+  <div *ngIf="applicant">
+    <div class="row">
+      <div class="col s12">
+        <h5 style="margin: 0px;">Aplicante</h5>
+        <div class="input-field inline col s12">
+          <strong>Apellidos:</strong>
+          <span>{{applicant.firstLastName}} {{applicant.secondLastName}}</span>
+        </div>
+        <div class="input-field inline col s12">
+          <strong>Nombres:</strong>
+          <span>{{applicant.firstName}} {{applicant.secondName}}</span>
+        </div>
+        <div class="input-field inline col s12">
+          <strong>Tipo de Identificación:</strong>
+          <span> {{applicant.documentType.name}}</span>
+        </div>
+        <div class="input-field inline col s12">
+          <strong>Identificación:</strong>
+          <span> {{applicant.documentNumber}}</span>
+        </div>
+        <div class="input-field inline col s12">
+          <strong>Correo:</strong>
+          <span> {{applicant.email}}</span>
+        </div>
+      </div>
+      <div class="col s12">
+        <h5 style="margin: 0px;">Respuestas</h5>
+        <div *ngFor="let answer of answers" class="form-row">
+
+          <div [ngSwitch]="answer.fieldTypeId">
+
+            <div *ngSwitchDefault class="input-field inline col s12">
+              <strong>{{answer.label}}:</strong>
+              <span>{{answer.value}}</span>
+            </div>
+            <div *ngSwitchCase="3" class="input-field inline col s12">
+              <strong>{{answer.label}}:</strong>
+              <a class="green waves-effect waves-green btn-flat" 
+              type="button" value="Descargar" (click)="downloadFile(answer.value)"
+              style="color:white;">Abrir</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col s9"></div>
+  <!--<div class="col s3">
+    <a class="waves-effect waves-light btn light-blue darken-4 typesButton" type="button">Tipos de Convocatoria</a>
+  </div>-->
+</div>
+<div class="row">
+  <div class="col s2"></div>
+  <nav class="nav-extended col s8" style="background-color: #01579b">
+    <div class="nav-wrapper">
+      <h3 class="brand-logo center"> Oferentes </h3>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <a class="waves-effect waves-light btn light-green"><i class="material-icons left">add</i>Crear Oferente</a>
+      </ul>
+    </div>
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a (click)="goToPending()">Por Aprobar</a></li>
+        <li class="tab"><a (click)="goToApproved()">Aprobados</a></li>
+        <li class="tab"><a (click)="goToDenied()">Rechazados</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="row" [ngSwitch]="action">
+  <div class="col s2"></div>
+  <div class="col s8" *ngSwitchCase="'pending'">
+    <app-administrator-offerers-pending></app-administrator-offerers-pending>
+  </div>
+  <div class="col s8" *ngSwitchCase="'approved'">
+    <app-administrator-offerers-approved></app-administrator-offerers-approved>
+  </div>
+  <div class="col s8" *ngSwitchCase="'denied'">
+    <app-administrator-offerers-denied></app-administrator-offerers-denied>
+  </div>
+</div>

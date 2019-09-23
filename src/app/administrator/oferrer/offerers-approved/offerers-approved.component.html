@@ -1,0 +1,24 @@
+<table class="responsive-table striped">
+  <thead>
+    <tr>
+      <th class="center-align">NIT</th>
+      <th class="center-align">Nombre</th>
+      <th class="center-align">Correo</th>
+      <th class="center-align">Telefono</th>
+      <th class="center-align" style="width:60px">Editar</th>
+      <th class="center-align" style="width:60px">Rechazar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of oferrers;let i=index">
+
+      <td>{{item.nit}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.telephone}}</td>
+      <td><a (click)="edit(item.nit)" class="waves-effect waves-light btn blue"><i class="small material-icons center">create</i></a></td>
+      <td><a (click)="reject(item.nit)" class="waves-effect waves-light btn red"><i class="small material-icons center">highlight_off</i></a></td>
+    </tr>
+  </tbody>
+</table>

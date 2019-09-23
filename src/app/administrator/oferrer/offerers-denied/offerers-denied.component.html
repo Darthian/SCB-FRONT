@@ -1,0 +1,22 @@
+<table class="responsive-table striped">
+  <thead>
+    <tr>
+      <th class="center-align">NIT</th>
+      <th class="center-align">Nombre</th>
+      <th class="center-align">Correo</th>
+      <th class="center-align">Telefono</th>
+      <th class="center-align" style="width:60px">Aprobar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of oferrers;let i=index">
+
+      <td>{{item.nit}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.telephone}}</td>
+      <td><a (click)="approve(item.nit)" class="waves-effect waves-light btn green"><i class="small material-icons center">check</i></a></td>
+    </tr>
+  </tbody>
+</table>

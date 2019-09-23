@@ -1,0 +1,31 @@
+<div>
+  <h5 class="text-xs-center no-space-margin-top">Detalle</h5>
+  <div>
+    <div class="row">
+      <div class="input-field inline col s12">
+        <strong>Nombre:</strong>
+        <span>{{phase.name}}</span>
+      </div>
+      <div class="input-field inline col s12">
+        <strong>Fecha Inicio:</strong>
+        <span>{{getFormatDateStartDate()}}</span>
+      </div>
+      <div class="input-field inline col s12">
+        <strong>Fecha fin:</strong>
+        <span>{{getFormatDateEndDate()}}</span>
+      </div>
+      <div class="input-field inline col s12">
+        <strong>Fecha Inicio aprobación postulación:</strong>
+        <span>{{getFormatDateStartApprovalDate()}}</span>
+      </div>
+      <div class="input-field inline col s12">
+        <strong>Fecha Fin aprobación postulación:</strong>
+        <span>{{getFormatDateEndApprovalDate()}}</span>
+      </div>
+      <div class="input-field inline col s12">
+        <strong>Descripción:</strong>
+        <span>{{phase.description }}</span>
+      </div>
+    </div>
+  </div>
+</div>

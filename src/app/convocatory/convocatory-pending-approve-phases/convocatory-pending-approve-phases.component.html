@@ -1,0 +1,35 @@
+<div class="space-margin-top">
+  <div class="row no-space-margin-bottom">
+    <div class="col m8 s12 offset-m2 z-depth-4" style="padding:0px;">
+      <nav class="nav-extended" style="background-color: #01579b">
+        <div class="nav-wrapper">
+          <div class="left-align col m2 s4" style="padding-left: 20px;">
+            <a class="waves-effect center-align waves-light btn light-green" href="javascript:void();" (click)="goBack()">
+                        <i class="material-icons left" style="line-height: 40px;">navigate_before</i>Volver
+                </a>
+          </div>
+          <div class="col m6 s8">
+            <h3 class="brand-logo center"> Convocatoria </h3>
+          </div>
+        </div>
+      </nav>
+
+      <div class="row no-space-margin-bottom">
+        <div class="white-background">
+          <app-detail-basic-convocatory [convocatory]="convocatory"></app-detail-basic-convocatory>
+          <hr>
+        </div>
+      </div>
+      <div class="row space-padding-top no-space-margin-bottom white-background">
+        <h5 class="text-xs-center" style="margin: 0px;"> Fases </h5>
+        <p>{{convocatory.id}}</p>
+        <div *ngIf="convocatory.id">
+          <app-list-phases [includeApproveApplicants]="true" [convocatoryId]="convocatory.id"></app-list-phases>
+        
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

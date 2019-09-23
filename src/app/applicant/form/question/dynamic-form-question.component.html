@@ -1,0 +1,114 @@
+<div [formGroup]="form">
+  <label class="questionLabel" [attr.for]="question.key">{{question.label}}</label>
+
+  <div [ngSwitch]="question.controlType">
+
+    <input *ngSwitchCase="'text'" [formControlName]="question.key" [id]="question.key" [type]="question.type" class="validate"
+      [placeholder]="question.label">
+
+
+    <input *ngSwitchCase="'email'" [formControlName]="question.key" [id]="question.key" [type]="question.type" class="validate"
+      [placeholder]="question.label">
+
+    <input *ngSwitchCase="'number'" [formControlName]="question.key" [id]="question.key" [type]="question.type" class="validate"
+      [placeholder]="question.label">
+
+    <div *ngSwitchCase="'textarea'" class="form-group">
+      <textarea class="materialize-textarea" [formControlName]="question.key" [id]="question.key" [name]="question.label"></textarea>
+    </div>
+
+    <div *ngSwitchCase="'file'" class="row">
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Archivo</span>
+          <input [formControlName]="question.key" [name]="question.label"  type="file"  [id]="question.key" 
+          (change)="onChange(question, $event)" 
+          [accept]="question.validation.value" 
+          [required]="question.required">
+          
+          <!--<input [formControlName]="question.key" [name]="question.label"
+           [id]="question.key" type="file" [multiple]="multiple" #{{question.key}}>-->
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+    </div>
+
+    <input *ngSwitchCase="'date'" [formControlName]="question.key" [id]="question.key" [type]="question.type" class="validate"
+      [placeholder]="question.label">
+
+    <input *ngSwitchCase="'url'" [formControlName]="question.key" [id]="question.key" [type]="question.type" class="validate"
+      [placeholder]="question.label">
+
+    <input *ngSwitchCase="'time'" [formControlName]="question.key" [id]="question.key" [type]="question.type" class="validate"
+      [placeholder]="question.label">
+
+  </div>
+  <div class="validation" *ngIf="!isValid">
+    <span>
+      <b>Campo Ínvalido</b>
+    </span>
+    <span *ngIf="isRequired">
+      {{question.label}} es requerido
+    </span>
+    <div *ngIf="IsEmail">
+      <b>Campo debe contener un email válido </b>
+      <span>
+        {{question.validation.errorMessage}}
+      </span>
+    </div>
+    <div *ngIf="IsPattern">
+      <b>Campo debe contener una url válida.</b>
+      <span>
+        {{question.validation.errorMessage}}
+      </span>
+    </div>
+    <div *ngIf="isNotBetween">
+      <b>Fecha no esta en un rango válido: </b>
+      <span>
+        {{question.validation.errorMessage}}
+      </span>
+    </div>
+
+    <div *ngIf="isDateLesser">
+      <b>Fecha debe ser mayor: </b>
+      <span>
+        {{question.validation.errorMessage}}
+      </span>
+    </div>
+
+    <div *ngIf="isDateGreater">
+      <b>Fecha debe ser menor: </b>
+      <span>
+        {{question.validation.errorMessage}}
+      </span>
+    </div>
+    <div *ngIf="isMin">
+      <b>Número debe ser mayor </b>
+      <span>
+        {{question.validation.errorMessage}}
+      </span>
+    </div>
+    <div *ngIf="isMax">
+      <b>Número debe ser menor </b>
+      <span>
+        {{question.validation.errorMessage}}
+      </span>
+    </div>
+    <div *ngIf="IsMinLength">
+      <b>Texto debe ser mas largo </b>
+      <span>
+        {{question.validation.errorMessage}}
+      </span>
+    </div>
+    <div *ngIf="IsMaxLength">
+      <b>Texto debe ser mas corto </b>
+      <span>
+        {{question.validation.errorMessage}}
+      </span>
+    </div>
+
+  </div>
+
+</div>

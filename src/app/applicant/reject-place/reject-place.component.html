@@ -1,0 +1,29 @@
+<div >
+  <nav class="nav-extended" style="background-color: #01579b">
+    <div class="nav-wrapper">
+      <h4 class="brand-logo center" style="margin: 15px;"> Rechazo de Plaza</h4>
+    </div>
+  </nav>
+  <div class="row" style="margin-bottom: 0px;">
+    <form id="form_reject_place" class="modal-content" style="margin-top: 10px;padding-bottom: 0px;">
+      <div class="row" *ngIf="summary !== ''">
+        <div class="input-field col s12">          
+          <p [innerHTML]="summary" style="color: red;"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <input *ngIf="message_tooltip !== undefined" [(ngModel)]="message" name="message" id="message" type="text" class="validate invalid" materialize="tooltip" [materializeParams]="message_tooltip" data-position="top" data-delay="10" [attr.data-tooltip]="message_tooltip['error']" />
+          <input *ngIf="message_tooltip === undefined" [(ngModel)]="message" name="message" id="message" type="text" class="validate" />
+          <label>Causal de rechazo</label>
+        </div>       
+      </div>
+      
+      <div class="modal-footer">
+        <a class="waves-effect btn-flat" id="cancel" type="button" value="Cancelar" (click)="cancel()" >Cancelar</a>
+        <a class="blue waves-effect waves-blue btn-flat" id="convocatory" type="button" value="enviar" (click)="reject()" style="color:white;">Enviar</a>
+      </div>
+    </form>
+    
+  </div>
+</div>

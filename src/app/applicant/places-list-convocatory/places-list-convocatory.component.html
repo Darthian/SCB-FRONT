@@ -1,0 +1,39 @@
+<table class="responsive-table striped">
+  <thead>
+    <tr>
+      <th class="center-align">Tipo</th>
+      <th class="center-align">Nombre</th>
+      <th class="center-align">Descripcion</th>          
+      <th class="center-align">Estado</th>            
+      <th class="center-align" style="width:60px">Aprobar</th>      
+      <th class="center-align"style="width:60px">Rechazar</th>      
+    </tr>
+  </thead>
+  <tbody> 
+    <tr *ngFor="let item of places">
+      <td>{{item.convocatory.convocatoryType.name}}</td>
+      <td>{{item.convocatory.name}}</td>
+      <td>{{item.convocatory.description}}</td>
+      <td>{{item.placeState.name}}</td>            
+      <td>
+        <div *ngIf="item.placeState.name === 'Pendiente'">
+          <a (click)="approvePlace(item.id)" class="waves-effect waves-light btn green"><i class="small material-icons center">check</i></a>
+        </div>
+      </td>
+      <td>
+        <div *ngIf="item.placeState.name === 'Pendiente'">
+          <a (click)="openModalRejectPlace(item.id)" class="waves-effect waves-light btn red"><i class="small material-icons center">highlight_off</i></a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table> 
+
+  <!--<a class="waves-effect waves-light btn light-green modal-trigger" href="#modal_create_convocatory"
+(click)="openModalCreateConvocatory()" >
+<i class="material-icons left">add</i>Crear</a>-->
+
+
+<div id="modal_reject_place" class="modal modal-height"  materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActionsRejectPlace">  
+      <app-reject-place [idPlace]="currentIdPlace" (cancelation)="closeModalRejectPlace()" ></app-reject-place>
+</div>

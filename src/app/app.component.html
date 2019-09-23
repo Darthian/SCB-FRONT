@@ -1,0 +1,78 @@
+<nav>
+  <div class="nav-wrapper light-blue darken-4">
+    <a href="#" class="brand-logo center">Sistema Central de Becas</a>
+    <!-- <a materialize="sideNav" [materializeParams]="[{edge:'left',closeOnClick:true}]" href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu">asdas</i></a> -->
+
+    <!-- <a href="#" materialize="sideNav" data-activates="slide-out" (click)="showSidenav()" [materializeParams]="[{edge:'left',closeOnClick:true}]" class="button-collapse"><i class="material-icons">menu</i></a> -->
+    
+    
+    <a data-activates="mobile-demo" class="button-collapse" (click)="showSidenav()"><i class="material-icons">menu</i></a>
+    <!-- <a class="button-collapse" (click)="showSidenav()"><i class="material-icons">menu</i></a> -->
+
+    <ul class="left hide-on-med-and-down">
+      
+<a materialize="sideNav" [materializeParams]="sidenavParams" [materializeActions]="sidenavActions" data-activates="sidenav" class="btn-floating btn-flat waves-effect waves-light transparent" (click)="hideWelcome = true">
+    <i class="material-icons">menu</i>
+</a>
+        <!-- <a (click)="showSidenav()"><i class="material-icons">menu</i></a> -->
+    </ul>
+    <!-- <a href="#!" class="brand-logo">Logo</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
+
+    <ul class="right hide-on-med-and-down">
+      <li *ngIf="user == null" class="light-blue">
+        <a routerLink="/register" routerLinkActive="active">Registro</a>
+      </li>
+      <li *ngIf="user == null" class="light-blue">
+        <a routerLink="/form" routerLinkActive="active">Form</a>
+      </li>
+      <li *ngIf="user == null" class="light-blue lighten-1">
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+
+
+      <li *ngIf="user !== undefined && user !== null && isApplicant">
+        <a routerLink="/convocatories" routerLinkActive="active">Ver convocatorias</a>
+      </li>
+      <li *ngIf="user !== undefined && user !== null && isApplicant">
+        <a routerLink="/upload_document" routerLinkActive="active">Subir documentos</a>
+      </li>
+      <li *ngIf="user !== undefined && user !== null && isAdmin">
+        <a routerLink="/administrator/profile" routerLinkActive="active">Perfil</a>
+      </li>
+
+      <li *ngIf="user !== undefined && user !== null">
+        <a (click)="logout();">Salir</a>
+      </li>
+    </ul>
+
+    
+    <!-- <ul class="side-nav" materialize="sideNav" [materializeParams]="sidenavParams" [materializeActions]="sidenavActions" data-activates="sidenav">
+      <h1>Entra </h1>
+      <li >
+        <a routerLink="/register" routerLinkActive="active">Registro</a>
+      </li>
+      <li  class="">
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+    </ul> -->
+  </div>
+</nav>
+
+<!-- <div (click)="showSidenav()" id="welcome">Another sidenav trigger</div> -->
+
+<div id="sidenav" class="side-nav">
+  <ul>
+      <li *ngIf="user == null" class="light-blue">
+        <a routerLink="/register" routerLinkActive="active">Registro</a>
+      </li>
+      <li *ngIf="user !== undefined && user !== null">
+        <a (click)="logout();">Salir</a>
+      </li>
+  </ul>
+</div>
+
+
+<div>
+  <router-outlet></router-outlet>
+</div>
